@@ -31,17 +31,17 @@ public class AppConfig {
         sessionFactoryBean.setPackagesToScan(new String[]{"model"});
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
         dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/clinicmana2");
-        dataSource.setUsername("rmit");
-        dataSource.setPassword("rmit");
+//        dataSource.setUrl("jdbc:postgresql://localhost:5432/clinicmana2");
+//        dataSource.setUsername("rmit");
+//        dataSource.setPassword("rmit");
 
 
-//        String dbUrl = System.getenv("JDBC_DATABASE_URL");
-//        String username = System.getenv("JDBC_DATABASE_USERNAME");
-//        String password = System.getenv("JDBC_DATABASE_PASSWORD");
-//        dataSource.setUrl(dbUrl);
-//        dataSource.setUsername(username);
-//        dataSource.setPassword(password);
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+        String username = System.getenv("JDBC_DATABASE_USERNAME");
+        String password = System.getenv("JDBC_DATABASE_PASSWORD");
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
 
         sessionFactoryBean.setDataSource(dataSource);
         sessionFactoryBean.setHibernateProperties(properties);
